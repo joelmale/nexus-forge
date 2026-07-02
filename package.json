@@ -14,7 +14,7 @@
     "size-limit": "size-limit",
     "docker:build": "bash ./scripts/fast-build.sh",
     "docker:build-push": "bash ./scripts/docker-build-push.sh",
-    "docker:run": "docker stop nexus-forge 2>/dev/null || true && docker rm nexus-forge 2>/dev/null || true && docker run -d --name nexus-forge -p 8080:80 joelmale/nexus-forge:latest && echo '✅ Container started at http://localhost:8080'",
+    "docker:run": "docker stop nexus-forge 2>/dev/null || true && docker rm nexus-forge 2>/dev/null || true && docker run -d --name nexus-forge -p 8080:8080 joelmale/nexus-forge:latest && echo '✅ Container started at http://localhost:8080'",
     "docker:stop": "docker stop nexus-forge && docker rm nexus-forge && echo '✅ Container stopped and removed'",
     "docker:logs": "docker logs -f nexus-forge",
     "docker:restart": "docker restart nexus-forge && echo '✅ Container restarted'"
