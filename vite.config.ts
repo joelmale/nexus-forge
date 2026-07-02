@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import federation from '@originjs/vite-plugin-federation';
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -16,7 +17,18 @@ const getVersion = () => {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    federation({
+      name: 'nexus_forge',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './CharacterSheet': './src/components/CharacterSheet/CharacterSheet.tsx',
+        './dbService': './src/services/dbService.ts'
+      },
+      shared: ['react', 'react-dom', 'react-router-dom']
+    })
+  ],
   define: {
     'import.meta.env.VITE_APP_VERSION': JSON.stringify(getVersion()),
   },
@@ -32,6 +44,7 @@ export default defineConfig({
     include: ['@3d-dice/dice-box']
   },
   build: {
+    target: 'esnext',
     outDir: 'dist',
     sourcemap: false,
     minify: 'terser',

@@ -1,5 +1,5 @@
 {
-  "name": "5e-character-forge",
+  "name": "nexus-forge",
   "version": "1.5.3",
   "description": "A client-side D&D 5e character generator and sheet manager",
   "type": "module",
@@ -14,10 +14,10 @@
     "size-limit": "size-limit",
     "docker:build": "bash ./scripts/fast-build.sh",
     "docker:build-push": "bash ./scripts/docker-build-push.sh",
-    "docker:run": "docker stop 5e-forge 2>/dev/null || true && docker rm 5e-forge 2>/dev/null || true && docker run -d --name 5e-forge -p 8080:80 joelmale/5e-character-forge:latest && echo '\u2705 Container started at http://localhost:8080'",
-    "docker:stop": "docker stop 5e-forge && docker rm 5e-forge && echo '\u2705 Container stopped and removed'",
-    "docker:logs": "docker logs -f 5e-forge",
-    "docker:restart": "docker restart 5e-forge && echo '\u2705 Container restarted'"
+    "docker:run": "docker stop nexus-forge 2>/dev/null || true && docker rm nexus-forge 2>/dev/null || true && docker run -d --name nexus-forge -p 8080:80 joelmale/nexus-forge:latest && echo '✅ Container started at http://localhost:8080'",
+    "docker:stop": "docker stop nexus-forge && docker rm nexus-forge && echo '✅ Container stopped and removed'",
+    "docker:logs": "docker logs -f nexus-forge",
+    "docker:restart": "docker restart nexus-forge && echo '✅ Container restarted'"
   },
   "dependencies": {
     "@3d-dice/dice-box": "^1.1.4",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
+    "@originjs/vite-plugin-federation": "^1.4.1",
     "@size-limit/preset-app": "^12.0.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@testing-library/jest-dom": "^6.9.1",
@@ -63,7 +64,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/joelmale/5e_character_forge.git"
+    "url": "https://github.com/joelmale/NexusForge.git"
   },
   "keywords": [
     "dnd",
