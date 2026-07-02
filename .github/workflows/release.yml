@@ -63,7 +63,7 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: |
-          ghcr.io/${{ github.repository_owner }}/5e-character-forge
+          ghcr.io/${{ github.repository_owner }}/nexus-forge
         tags: |
           type=ref,event=tag
           type=raw,value=latest,enable={{is_default_branch}}
@@ -89,7 +89,7 @@ jobs:
       uses: actions/attest-build-provenance@v1
       with:
         subject-digest: ${{ steps.build.outputs.digest }}
-        subject-name: ghcr.io/${{ github.repository_owner }}/5e-character-forge
+        subject-name: ghcr.io/${{ github.repository_owner }}/nexus-forge
 
   release:
     name: Create Release
@@ -130,8 +130,8 @@ jobs:
 
           ### 🐳 Deployment
           **Multi-platform Docker images available:**
-          - `ghcr.io/${{ github.repository_owner }}/5e-character-forge:${{ github.ref_name }}` (linux/amd64, linux/arm64)
-          - `ghcr.io/${{ github.repository_owner }}/5e-character-forge:latest`
+          - `ghcr.io/${{ github.repository_owner }}/nexus-forge:${{ github.ref_name }}` (linux/amd64, linux/arm64)
+          - `ghcr.io/${{ github.repository_owner }}/nexus-forge:latest`
 
           ### 🔒 Security
           - Vulnerability scan completed

@@ -46,7 +46,7 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: |
-          ghcr.io/${{ github.repository_owner }}/5e-character-forge
+          ghcr.io/${{ github.repository_owner }}/nexus-forge
         tags: |
           type=ref,event=branch
           type=ref,event=tag
@@ -74,4 +74,4 @@ jobs:
       uses: actions/attest-build-provenance@v1
       with:
         subject-digest: ${{ steps.build.outputs.digest }}
-        subject-name: ghcr.io/${{ github.repository_owner }}/5e-character-forge
+        subject-name: ghcr.io/${{ github.repository_owner }}/nexus-forge
