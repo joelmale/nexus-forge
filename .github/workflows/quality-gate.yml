@@ -52,7 +52,8 @@ jobs:
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v5
-      if: ${{ secrets.CODECOV_TOKEN != '' }}
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       with:
         fail_ci_if_error: true
         verbose: true
@@ -82,7 +83,6 @@ jobs:
       uses: preactjs/compressed-size-action@v2
       with:
         pattern: "dist/assets/*.js"
-        maximum-size: 2MB
         compression: gzip
 
   security-quality:
